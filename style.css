@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'emergency-congestion-status-icons';
+  font-family: 'chair-icons';
   src:  url('fonts/icomoon.eot?k9zork');
   src:  url('fonts/icomoon.eot?k9zork#iefix') format('embedded-opentype'),
     url('fonts/icomoon.ttf?k9zork') format('truetype'),
@@ -10,7 +10,7 @@
 }
 
 [class^="emergency-congestion-status-icon-"], [class*=" emergency-congestion-status-icon-"] {
-  font-family: 'emergency-congestion-status-icons' !important;
+  font-family: 'chair-icons' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
