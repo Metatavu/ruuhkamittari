@@ -154,7 +154,7 @@
 
       const statusTextElement = document.querySelector("#emergency-congestion-status-gauge-container .status-text");
       if (value <= 32) {
-        statusTextElement.innerHTML = "Odotusaika ei ole pitkä."
+        statusTextElement.innerHTML = "Päivystys toimii normaalisti."
       } else if (value >= 33 && value <= 65) {
         statusTextElement.innerHTML = "Odotusajat ovat hieman pidentyneet."
       } else if (value >= 66) {
