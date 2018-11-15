@@ -1,85 +1,47 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Päivystyksen ruuhkamittari</title>
-    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet"> 
-    <link href="style.css" rel="stylesheet" type="text/css">
-    <style type="text/css">
-      body,html {
-        background: #ffffff;
-      }
-      .top-corner-leaf {
-        position: fixed;
-        top: 0;
-        left: 0;
-      }
-      .main-header {
-        text-align: center;
-        font-size: 72px;
-        font-family: 'Fjalla One', sans-serif;
-        color: #005eb8;
-      }
-      .status-text {
-        margin-top: 15px;
-        font-size: 52px;
-        font-family: 'Fjalla One', sans-serif;
-      }
-      .bottom-right-logo {
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        max-width: 500px;
-      }
-      .bottom-left-logo {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        padding-bottom: 10px;
-        max-width: 500px;
-      }
-      #emergency-congestion-status-gauge-container {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 1200px;
-      }
-    </style>
-    <script src="https://cdn.metatavu.io/libs/chart-js/2.7.2/Chart.min.js"></script>
-  </head>
-  <body>
-    <img class="top-corner-leaf" src="gfx/leaf_top_corner.png" />
-    <h1 class="main-header">Päivystyksen Ruuhkamittari</h1>
-    <div id="emergency-congestion-status-gauge-container">
-      <div class="chart-container">
-        <canvas class="emergency-congestion-status-gauge"></canvas>
-      </div>
-      <div class="chair-container">
-        <div class="chair-row">
-          <span class="chair"></span>
-          <span class="chair"></span>
-          <span class="chair"></span>
-          <span class="chair"></span>
-          <span class="chair"></span>
-          <span class="chair"></span>
-          <span class="chair"></span>
-        </div> 
-        <div class="chair-row">
-          <span class="chair"></span>
-          <span class="chair"></span>
-          <span class="chair"></span>
-          <span class="chair"></span>
-          <span class="chair"></span>
-          <span class="chair"></span>
-          <span class="chair"></span>
-        </div>
-      </div>
-      <div class="status-text-container">
-        <h3 class="status-text"></h3>
-      </div>
-    </div>
-    <img class="bottom-right-logo" src="gfx/logo-text.png">
-    <img class="bottom-left-logo" src="gfx/essote-bottom.png">
-    <script>
+(function(){
+  "use strict";
+
+  var gaugeStyle = document.createElement("link");
+  gaugeStyle.rel = "stylesheet";
+  gaugeStyle.href = "https://static.metatavu.io/ruuhkamittari/style.css";
+  document.head.appendChild(gaugeStyle);
+
+  var chartJsScript = document.createElement('script');
+
+  chartJsScript.onload = function () {
+
+    var elements =  "<div class=\"chart-container\">" +
+      "<canvas class=\"emergency-congestion-status-gauge\"></canvas>" +
+    "</div>" +
+    "<div class=\"chair-container\">" +
+    "  <div class=\"chair-row\">" +
+    "    <span class=\"chair\"></span>" +
+    "    <span class=\"chair\"></span>" +
+    "    <span class=\"chair\"></span>" +
+    "    <span class=\"chair\"></span>" +
+    "    <span class=\"chair\"></span>" +
+    "    <span class=\"chair\"></span>" +
+    "    <span class=\"chair\"></span>" +
+    "  </div> " +
+    "  <div class=\"chair-row\">" +
+    "    <span class=\"chair\"></span>" +
+    "    <span class=\"chair\"></span>" +
+    "    <span class=\"chair\"></span>" +
+    "    <span class=\"chair\"></span>" +
+    "    <span class=\"chair\"></span>" +
+    "    <span class=\"chair\"></span>" +
+    "    <span class=\"chair\"></span>" +
+    "  </div>" +
+    "</div>" +
+    "<div class=\"status-text-container\">" +
+    "  <h3 class=\"status-text\"></h3>" +
+    "</div>";
+
+    var gaugeScriptElement = document.getElementById("emergency-congestion-status-gauge");
+    var gaugeContainerElement = document.createElement("div");
+    gaugeContainerElement.setAttribute("id", "emergency-congestion-status-gauge-container");
+    gaugeContainerElement.innerHTML = elements;
+    gaugeScriptElement.parentNode.insertBefore(gaugeContainerElement, gaugeScriptElement);
 
     var hideChart = getUrlParameter("hideChart", location.search) === "true";
     var hideChairs = getUrlParameter("hideChairs", location.search) === "true";
@@ -283,6 +245,9 @@
       }
       return obj;
     };
-    </script>
-  </body>
-</html>
+  };
+
+  chartJsScript.src = "https://cdn.metatavu.io/libs/chart-js/2.7.2/Chart.min.js";
+  document.head.appendChild(chartJsScript);
+
+})();
