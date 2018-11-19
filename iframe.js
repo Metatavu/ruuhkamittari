@@ -156,9 +156,9 @@
       if (value <= 32) {
         statusTextElement.innerHTML = "Päivystys toimii normaalisti."
       } else if (value >= 33 && value <= 65) {
-        statusTextElement.innerHTML = "Odotusajat ovat hieman pidentyneet."
-      } else if (value >= 66) {
         statusTextElement.innerHTML = "Odotusaika on pidentynyt."
+      } else if (value >= 66) {
+        statusTextElement.innerHTML = "Päivystys on ruuhkautunut."
       }
     }
 
