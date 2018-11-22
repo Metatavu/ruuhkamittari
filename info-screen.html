@@ -87,15 +87,18 @@
     var chart;
     
     if (hideChart) {
-      document.querySelector("#emergency-congestion-status-gauge-container .chart-container").remove();
+      var chartElement = document.querySelector("#emergency-congestion-status-gauge-container .chart-container");
+      chartElement.parentElement.removeChild(chartElement);
     }
 
     if (hideChairs) {
-      document.querySelector("#emergency-congestion-status-gauge-container .chair-container").remove();
+      var chairElement = document.querySelector("#emergency-congestion-status-gauge-container .chair-container");
+      chairElement.parentElement.removeChild(chairElement);
     }
 
     if (hideStatus) {
-      document.querySelector("#emergency-congestion-status-gauge-container .status-text-container").remove();
+      var statusElement = document.querySelector("#emergency-congestion-status-gauge-container .status-text-container");
+      statusElement.parentElement.removeChild(statusElement);
     }
 
     var ctx = document.querySelector("#emergency-congestion-status-gauge-container .emergency-congestion-status-gauge");
