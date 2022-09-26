@@ -142,7 +142,7 @@
         var OK = 200;
         if (xhr.readyState == DONE) {
           var status = JSON.parse(xhr.responseText);
-          var value = parseInt(status[0].value);
+          var value = parseInt(status.value);
           updateChart(value);
           updateChairs(value);
           updateStatusText(value);
@@ -151,7 +151,7 @@
           }
         }
       };
-      xhr.open('GET', 'https://essote-soteapi.metatavu.io/v1/emergencyCongestionStatuses?firstResult=0&maxResults=1');
+      xhr.open('GET', 'https://essote-app-hallinta.metatavu.io/wp-json/emergency/congestion/status');
       xhr.send(null);
     }
 
